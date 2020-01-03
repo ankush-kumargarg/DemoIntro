@@ -13,7 +13,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiServiceFactory {
-    private static final String BASE_URL = "";
+    private static final String BASE_URL = "https://simplifiedcoding.net/demos/";
 
     public static ApiService makeApiServiceService() {
         return makeApiService(makeOkHttpClient());
