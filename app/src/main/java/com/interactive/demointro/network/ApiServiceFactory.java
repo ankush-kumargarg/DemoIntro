@@ -14,6 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiServiceFactory {
     private static final String BASE_URL = "https://simplifiedcoding.net/demos/";
+    private static final String BASE_URL1 = "http://depanneurtechnologies.com/cabs2bid/api/";
+
 
     public static ApiService makeApiServiceService() {
         return makeApiService(makeOkHttpClient());
@@ -21,7 +23,7 @@ public class ApiServiceFactory {
 
     private static ApiService makeApiService(OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_URL1)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
@@ -32,7 +34,7 @@ public class ApiServiceFactory {
     private static OkHttpClient makeOkHttpClient() {
         OkHttpClient.Builder httpClientBuilder = new OkHttpClient().newBuilder();
         httpClientBuilder.addInterceptor(makeLoggingInterceptor());
-        httpClientBuilder.addInterceptor(createInterceptor());
+        //httpClientBuilder.addInterceptor(createInterceptor());
         return httpClientBuilder.build();
     }
 
